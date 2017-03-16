@@ -1,0 +1,22 @@
+enable
+  configure terminal
+
+    hostname S1
+	
+	vlan 2
+	  name Cluster
+	exit
+	
+	no spanning-tree vlan 2
+
+    int range Fa0/1-4
+      switchport mode access
+	  switchport access vlan 2
+      switchport nonegotiate
+      spanning-tree portfast
+      spanning-tree bpduguard enable
+      no shutdown
+    exit
+  exit
+
+disable

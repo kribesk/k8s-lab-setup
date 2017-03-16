@@ -1,0 +1,1 @@
+vagrant ssh -c '/vagrant/start_dnsmasq_matchbox.sh'
