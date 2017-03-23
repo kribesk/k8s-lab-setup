@@ -3,7 +3,7 @@
   "name": "k8s controller",
   "profile": "k8s-controller",
   "selector": {
-    "mac": "6c:3b:e5:39:db:03"
+    "mac": "6a:3b:e5:39:db:03"
   },
   "metadata": {
     "container_runtime": "docker",
