@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
     end
 
-    config.vm.network "public_network", bridge: "CISCO"
+    config.vm.network "public_network", bridge: "Realtek PCI GBE Family Controller"
     config.vm.provision "shell", path: "provision.sh"
 
 end
