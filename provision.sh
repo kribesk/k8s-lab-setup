@@ -8,16 +8,16 @@ sysctl net.ipv6.conf.lo.disable_ipv6=1
 apt-get update
 apt-get install -y docker.io git
 
-echo ">>>>>>>>>> GETTING MATCHBOX & CORE OS..."
-
-cd /vagrant
-if [ ! -d matchbox ]; then
-  git clone https://github.com/coreos/matchbox.git
-fi
-cd matchbox
-if [ ! -d examples/assets/coreos ]; then
-  ./scripts/get-coreos stable 1235.9.0 ./examples/assets 2> /dev/null
-fi
+#echo ">>>>>>>>>> GETTING MATCHBOX & CORE OS..."
+#
+#cd /vagrant
+#if [ ! -d matchbox ]; then
+#  git clone https://github.com/coreos/matchbox.git
+#fi
+#cd matchbox
+#if [ ! -d examples/assets/coreos ]; then
+#  ./scripts/get-coreos stable 1235.9.0 ./examples/assets 2> /dev/null
+#fi
 
 echo ">>>>>>>>>> GETTING CONTAINERS..."
 

@@ -1,0 +1,4 @@
+.vagrant
+config/groups/*
+config/dnsmasq.conf
+bin
