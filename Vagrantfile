@@ -12,7 +12,6 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "provision.sh"
     config.vm.synced_folder 'S:/coreos', '/vagrant/config/assets/coreos', type: "virtualbox"
 
-
     config.vm.provider "virtualbox" do |vb|
       vb.name = "matchbox"
       vb.memory = "1024"

@@ -1,4 +1,7 @@
 .vagrant
+coreos/*
 config/groups/*
 config/dnsmasq.conf
+config/sshkeys/*
 bin
+*.exe

@@ -1,0 +1,29 @@
+{
+  "hosts": [
+    {
+      "mac": "6c:3b:e5:37:cd:75",
+      "name": "node4",
+      "ip": "172.18.0.24",
+      "disabled": true
+    },
+    {
+      "mac": "6c:3b:e5:39:c5:aa",
+      "name": "node2",
+      "ip": "172.18.0.22"
+    },
+    {
+      "mac": "6c:3b:e5:37:cd:a8",
+      "name": "node3",
+      "ip": "172.18.0.23"
+    },
+    {
+      "mac": "6c:3b:e5:37:cd:62",
+      "name": "node1",
+      "ip": "172.18.0.21",
+      "master": true
+    }
+  ],
+  "template_dir": ".\\templates",
+  "config_dir": ".\\config",
+  "sshkeys_dir": ".\\config\\sshkeys\\"
+}

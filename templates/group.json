@@ -17,9 +17,13 @@
     "etcd_name": "{{ host.name }}",
     "k8s_cert_endpoint": "http://matchbox.example.com:8080/assets",
     "k8s_dns_service_ip": "10.3.0.10",
-    "k8s_etcd_endpoints": "{% for h in hosts %}{{ h.name }}=http://{{ h.name }}.example.com:2379{% if not loop.last %},{% endif %}{% endfor %}",
+    "k8s_etcd_endpoints": "{% for h in hosts %}http://{{ h.name }}.example.com:2379{% if not loop.last %},{% endif %}{% endfor %}",
+    {% if not host.master %}
+    "k8s_controller_endpoint": "https://{{ master.name }}.example.com",
+    {% else %}
     "k8s_pod_network": "10.2.0.0/16",
     "k8s_service_ip_range": "10.3.0.0/24",
+    {% endif %}
     "pxe": "true",
     "ssh_authorized_keys": [
       "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAoyAsttIKRpl5MqNhMZ3e10/V0OvKwrCmsEHsPxY0dChLdOC8HJZtJj4v1MBSeBzioJ2elXAuQkDtLuLHvLkqWl5o8QLoAfbFsWYUAQ/R1wbIQMKz8eHL541LIke7pJBNrrTMbN6EPg3ObxH3/BDriknjKq+EBG6mnUUSW9a/3AOyECDxUUEjuXgEgLzlWAJFtL+INdkA41DQG3csIsX5PMlf1gpF8ODni5ht0z7951R97GnG2PIVUhJ+wKdFhF8/4JUN++TKeNG775XPOy6FZ4N2ipk7wWK2UFngyv5gm/aqA8SYKMGTd7KBw0e6nEAmjQcgvkfsAfV7FmUIePDXRQ=="

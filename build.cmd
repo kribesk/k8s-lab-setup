@@ -4,7 +4,9 @@ ECHO Using SSD (S:) for VMs
 MD S:\vbox
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" setproperty machinefolder "S:\vbox"
 
-MD S:\coreos
+ECHO Copying coreos images, if they exist it workdir...
+REM MD S:\coreos
+XCOPY /E coreos S:\coreos
 
 ECHO Configuring Realtek (CISCO) adapter...
 
