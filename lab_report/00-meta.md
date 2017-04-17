@@ -1,6 +1,6 @@
 ---
 title: Server Project Report
-author: Boris Kirikov, Volodymir Lybinets, T5615SN, XAMK
+author: Boris Kirikov, Volodymyr Lubenets, T5615SN, XAMK
 references:
 - id: wiki
   type: webpage
