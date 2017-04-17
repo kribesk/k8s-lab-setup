@@ -14,9 +14,5 @@ link-citations: true
 
 
 
-![](https://360.xamk.fi/layout/xamk_logo.jpg){width="1.7in" height="1.0in"}
-
-
-
-_Abstract here..._
+_All sources referenced in this report can be found on github: [k8s-lab-setup](https://github.com/kribesk/k8s-lab-setup)._
 

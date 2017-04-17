@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.hostname = "matchbox"
     config.vm.network "public_network", bridge: "Realtek PCI GBE Family Controller"
-    config.vm.provision "shell", path: "provision.sh"
+    config.vm.provision "shell", path: "scripts/provision.sh"
     config.vm.synced_folder 'S:/coreos', '/vagrant/config/assets/coreos', type: "virtualbox"
 
     config.vm.provider "virtualbox" do |vb|
