@@ -1,7 +1,7 @@
 
 ## Deploying docker container to kubernetes
 
-_(Section by Volodymyr Lubenets)_
+_(Section by Volodymyr Lubenets, __TODO: Rewrite section!__ )_
 
 This is an example of deploying the service to kubernetes cluster.
 Let's suppose the cluster is already up and running.
