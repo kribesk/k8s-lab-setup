@@ -38,6 +38,10 @@ references:
   type: webpage
   URL: https://www.vagrantup.com/intro/getting-started/
   title: "Vagrant: getting started"
+- id: k8s_persistence
+  type: webpage
+  URL: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+  title: K8s -- persistent volumes
 notice: |
   @k8s-api, @matchbox
 csl: ieee-security-and-privacy.csl
