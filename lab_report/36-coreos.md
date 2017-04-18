@@ -15,10 +15,10 @@ possible. Let's take a look on them.
 
 * No package manager used. CoreOS is designed to just provide its kernel to virtualized containers, so the native software set of the distribution is not
 supposed to be dynamically modified.
-* Uses rkt as built-in container runtime. This is a linux native container runtime developed by CoreOS team, which uses linux kernel instruments such as cgroups and namespaces instead of Docker approach (btw, it was used here previously too)
+* Uses rkt as built-in container runtime. This is a linux native container runtime developed by CoreOS team, which uses linux kernel instruments such as cgroups and namespaces instead of Docker approach (btw, it was used here previously too) [@coreos_rkt]
 * Has a special built-in daemon etcd, which was described in *"Kubernetes"* section. Keeping short, it is a program which gets the configs from cluster-wide 
 repo and can write to the shared cluster storage dynamically. Other than that, etcd is responsible for service discovery feature allowing other cluster 
-members see and use the service running.
+members see and use the service running. [@coreos_etcd]
   
   * etcd also provides the HTTP API server which gets JSONs with commands from the orchestrator or can be also managed by its etcdctl
 
@@ -34,22 +34,17 @@ such things, as:
 * formatting partitions
 * configuring users
 * writing files
-
-  * writing network configuration
+* writing network configuration
 
 etc.
 
 So, the point of using ignition is that you don't need to build each distribution for each cluster machine preconfigured and you may make a server which 
 will distribute the initial configurations based on IP/hostname of the machine connecting. 
-This can reduce the time of getting cluster to work significantly.
-
-[More information](https://coreos.com/ignition/docs/latest/what-is-ignition.html) on ignition.
+This can reduce the time of getting cluster to work significantly. [@coreos_ignition]
 
 ### Supported platforms
 
 With CoreOS, you can build a cluster on practically any computational unit you have, disregarding is that bare metal device, VM possessed by Amazon, 
-Google, or your on-site infrastructure or some dynamic number of machines connecting over the internet (PXE boot).
+Google, or your on-site infrastructure or some dynamic number of machines connecting over the internet (PXE boot). [@coreos_supported_platforms]
 
 Every platform will function the same way and it supports ignition configs.
-
-The whole list of platforms can be found [here](https://coreos.com/ignition/docs/0.12.1/supported-platforms.html).

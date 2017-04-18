@@ -138,6 +138,46 @@ references:
   type: webpage
   URL: https://github.com/kubernetes/ingress/blob/master/examples/aws/nginx/nginx-ingress-controller.yaml
   title: Nginx custom load balancer example
+- id: coreos_supported_platforms
+  type: webpage
+  URL: https://coreos.com/ignition/docs/0.12.1/supported-platforms.html
+  title: CoreOS-compatible platforms
+- id: coreos_ignition
+  type: webpage
+  URL: https://coreos.com/ignition/docs/latest/what-is-ignition.html
+  title: CoreOS: what are ignition configs
+- id: coreos_rkt
+  type: webpage
+  URL: https://coreos.com/rkt
+  title: CoreOS: what is rkt
+- id: coreos_etcd
+  type: webpage
+  URL: https://coreos.com/etcd
+  title: CoreOS: what is etcd
+- id: wiki_k8s
+  type: webpage
+  URL: https://en.wikipedia.org/wiki/Kubernetes
+  title: Kubernetes on wikipedia
+- id: wiki_cluster_manager
+  type: webpage
+  URL: https://en.wikipedia.org/wiki/Computer_cluster#Cluster_management
+  title: Cluster manager software on wikipedia
+- id: k8s_design_doc
+  type: webpage
+  URL: https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture.md
+  title: Kubernetes design and architecture
+- id: k8s_kubectl
+  type: webpage
+  URL: https://kubernetes.io/docs/user-guide/kubectl-overview/
+  title: Kubectl management tool overview
+- id: hypervisor_vs_container
+  type: webpage
+  URL: http://www.slashroot.in/difference-between-hypervisor-virtualization-and-container-virtualization
+  title: Hypervisor-based virtualization compared to containerized one
+- id: wiki_hypervisor
+  type: webpage
+  URL: https://en.wikipedia.org/wiki/Hypervisor
+  title: Hypervisor on wikipedia
 notice: |
   @k8s-api, @matchbox
 csl: ieee-security-and-privacy.csl

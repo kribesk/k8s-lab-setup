@@ -5,16 +5,16 @@ _(Section by Volodymyr Lubenets)_
 
 ### What is kubernetes (k8s)
 
-Being formal, it is an open source container cluster manager. [wiki](https://en.wikipedia.org/wiki/Kubernetes)
+Being formal, it is an open source container cluster manager. [@wiki_cluster_manager]
 
-Being descriptive, it is a platform, which takes care of managing the docker containers, which were previously decribed in this document, over the surface of cluster.
+Being descriptive, it is a platform, which takes care of managing the docker containers, which were previously decribed in this document, over the surface of cluster. [@wiki_k8s]
 
 Management is a superclass-expression, which includes automatic or semi-automatic deployment of container VMs,
 scheduling (making the running environment i.e. cluster node correspond container requirements), failover management in case the container or a node 
 goes down (self-healing) etc.
 
 Also k8s is capable of managing the cluster itself, controlling it's nodes, shared storages of different kind, shared configuration repository
-(see [etcd](https://github.com/coreos/etcd)) and also provide the UI for an administrator of the cluster.
+[@coreos_etcd] and also provide the UI for an administrator of the cluster.
 
 Let's take closer look on k8s' features in corresponding section.
 As a summary, k8s is a platform merging a cluster manager, a container manager and a tool to control this systems.
@@ -22,11 +22,12 @@ As a summary, k8s is a platform merging a cluster manager, a container manager a
 ### Who needs k8s and what for
 
 Kubernetes is useful for the one who possesses eather physical (bare metal), virtual or mixed server park and wants to run a number of services 
-(possibly large and fluctuating number) on the whole machine capacity with the ability to control and manage it simply.
+(possibly large and fluctuating number) on the whole machine capacity with the ability to control and manage it simply.  
+K8s is capable of being managed through HTTP API [@k8s-api], by kubectl [@k8s_kubectl] and by dashboard.
 
 ### The key entities in the k8s architecture
 
-The k8s whole infrastructure consists of two key entities, which provide the functonality of the system. Those are:
+The k8s whole infrastructure consists of two key entities, which provide the functonality of the system. (Design doc: [@k8s_design_doc]) Those are:
 
 * Node
 
@@ -74,12 +75,4 @@ The k8s whole infrastructure consists of two key entities, which provide the fun
   The service is a group of pods that work together, which is entitled by a shared label and granted a cluster-wide persistant IP and the DNS record 
   is added to cluster DNS db. This enables service exposure inside the cluster by default, but the service can also be exposed to the outside network 
   if needed. Also the load balancer is activated over the service's pod group.
-
-### Useful links
-
-* [API](https://kubernetes.io/docs/api/)
-* [Design doc](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture.md)
-* [CLI Commands](https://kubernetes.io/docs/user-guide/kubectl/v1.5/)
-* [Wiki - kubernetes](https://en.wikipedia.org/wiki/Kubernetes)
-* [Wiki - cluster manager](https://en.wikipedia.org/wiki/Computer_cluster#Cluster_management)
 
