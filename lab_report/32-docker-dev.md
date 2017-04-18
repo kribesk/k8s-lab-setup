@@ -15,7 +15,7 @@ After that `docker run --name <container> <image>` can be used to start the app.
 
 File consist of lines with instructions. Each line looks like `<INSTRUCTION> <arguments>`.
 
-Basic instructions:
+Basic instructions [@docker-dockerfile]:
 
   * `FROM <image>` use image as base
   * `RUN <command>` run command in shell while building
@@ -32,7 +32,7 @@ Basic instructions:
 Let's create hello world web server using python.
 
   1. `mkdir hello-world && cd hello-world`
-  2. `cat > app.py` this:
+  2. `cat > app.py` this [@bottle]:
 
 ~~~~~
 from bottle import route, run

@@ -31,7 +31,22 @@ Required software (Windows versions):
 This is the recommended configuration. Other host platforms (Linux, macOS) and virtualization providers (KVM, VMware) or cloud can be used.
 
 __Note:__ With the latest version of Vagrant and VirtualBox for Windows there is a bug (newer vbox provides long path suffix itself), this can be fixed by
-`/lab_setup/platform.patch` (`/lab_setup/platform.cmd` applies this patch if `patch.exe` is in path).
+this patch:
+
+```diff
+--- C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-1.9.2/lib/vagrant/util/platform.rb.old
++++ C:/HashiCorp/Vagrant/embedded/gems/gems/vagrant-1.9.2/lib/vagrant/util/platform.rb
+@@ -203,7 +203,7 @@
+           return path + "\\" if path =~ /^[a-zA-Z]:\\?$/
+ 
+           # Convert to UNC path
+-          path.gsub("/", "\\")
++          "\\\\?\\" + path.gsub("/", "\\")
+         end
+ 
+         # Returns a boolean noting whether the terminal supports color.
+
+```
 
 `build.cmd` script also does several preparations before starting VM:
 

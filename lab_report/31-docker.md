@@ -39,8 +39,8 @@ file system. Container is like VM instance. It is application that has state and
 
 ### Metadata
 
-Docker (and kubernetes too) use "attached dictionaries" of metadata for simplifying and automation of management. This means that to 
-objects (images, containers, volumes, networks, etc) labels can be attached. Label is basically a key-value pare of two strings, that 
+Docker (and kubernetes too) use "attached dictionaries" of metadata for simplifying and automation of management[@docker-meta]. This means 
+that to objects (images, containers, volumes, networks, etc) labels can be attached. Label is basically a key-value pare of two strings, that 
 can be tags, version/author information, scope or just everything. 
 
 For docker there are guidelines for using labels. Because docker images are way to distribute software and are mostly used by third-party
@@ -49,8 +49,8 @@ users, namespace conventions for labels are suggested. They work like packages i
 ### Layered FS
 
 One of the reasons why docker became so popular is that it works with containers like git with repositories. Instead of storing complete
-disk images it stores versions of images as difference layers. It minimizes use of storage and network, allows keeping different versions
-and quickly update images from registers.
+disk images it stores versions of images as difference layers [@docker-fs]. It minimizes use of storage and network, allows keeping different 
+versions and quickly update images from registers.
 
 The Docker storage driver stacks diff layers and provide a single unified view. When changes happen, they are written to the new layer on
 top of existing image.
@@ -58,14 +58,14 @@ top of existing image.
 ### Registry and repository
 
 When comparing docker to git, there are repositories and registries. Repository contains different versions in tree of layers of image,
-just like git contains code in tree of commits. Registry is a place that keeps repositories, just like GitHub. Examples of public
+just like git contains code in tree of commits [@docker-repo]. Registry is a place that keeps repositories, just like GitHub. Examples of public
 registries are Docker Hub, Quay, GCR and AWS Container Registry. Just like git, docker enumerates versions with hashes and have tags 
 pointing to specific versions.
 
 ### Docker daemon
 
-Docker uses server-client model. Server is docker daemon, dockerd. And client may be a CLI application `docker` or compose (see later)
-etc. So dockerd is the service that runs containers. It provides REST API for communication with clients. There are different ways of
+Docker uses server-client model. Server is docker daemon, `dockerd`. And client may be a CLI application `docker` or compose (see later)
+etc. So dockerd is the service that runs containers [@docker-dockerd]. It provides REST API for communication with clients. There are different ways of
 running dockerd: as a standalone program, as systemd service and even as a windows service. Also different channels can be selected for
 communication: by default unix sockets are used, but tcp can also be used.
 

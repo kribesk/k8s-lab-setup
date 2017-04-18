@@ -62,6 +62,34 @@ references:
   type: webpage
   URL: "https://docs.docker.com/engine/reference/commandline/cli/"
   title: "Use the Docker command line"
+- id: docker-meta
+  type: webpage
+  URL: "https://docs.docker.com/engine/userguide/labels-custom-metadata/"
+  title: "Docker object labels"
+- id: docker-fs
+  type: webpage
+  URL: "https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/"
+  title: "Understand images, containers, and storage drivers"
+- id: docker-repo
+  type: webpage
+  URL: "https://docs.docker.com/registry/"
+  title: "Docker Registry"
+- id: docker-native
+  type: webpage
+  URL: "https://docs.docker.com/docker-for-windows/"
+  title: "Get started with Docker for Windows"
+- id: docker-dockerfile
+  type: webpage
+  URL: "https://docs.docker.com/engine/reference/builder/"
+  title: "Dockerfile reference"
+- id: pxe
+  type: webpage
+  URL: "https://en.wikipedia.org/wiki/Preboot_Execution_Environment"
+  title: "Preboot Execution Environment"
+- id: docker-dockerd
+  type: webpage
+  URL: "https://docs.docker.com/engine/reference/commandline/dockerd/"
+  title: "dockerd"
 - id: docker-win-native
   type: webpage
   URL: "https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/"
@@ -70,6 +98,34 @@ references:
   type: webpage
   URL: "https://alpinelinux.org/"
   title: "Alpine linux"
+- id: ipxe-cmd
+  type: webpage
+  URL: "http://ipxe.org/cmd"
+  title: "Command reference"
+- id: bottle
+  type: webpage
+  URL: "https://bottlepy.org/docs/dev/"
+  title: "Bottle: Python Web Framework"
+- id: ipxe
+  type: webpage
+  URL: "http://ipxe.org/"
+  title: "iPXE - open source boot firmware"
+- id: ipxe-scripting
+  type: webpage
+  URL: "http://ipxe.org/scripting"
+  title: "iPXE Scripting"
+- id: dnsmasq
+  type: webpage
+  URL: "http://www.thekelleys.org.uk/dnsmasq/doc.html"
+  title: "Dnsmasq"
+- id: bootp
+  type: webpage
+  URL: "https://en.wikipedia.org/wiki/Bootstrap_Protocol"
+  title: "Bootstrap Protocol"
+- id: k8s_persistence
+  type: webpage
+  URL: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+  title: K8s -- persistent volumes
 notice: |
   @k8s-api, @matchbox
 csl: ieee-security-and-privacy.csl
