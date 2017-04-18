@@ -10,6 +10,9 @@ notice: |
   @wiki
 csl: ieee-security-and-privacy.csl
 link-citations: true
+linkReferences: true
+autoSectionLabels: true
+numberSections: true
 ---
 
 

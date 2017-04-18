@@ -125,7 +125,7 @@ Basic commands are:
   * `docker network create --driver <driver> <net>`
 
 
-### Networking
+### Networking {#sec:docker-net}
 
 Networking in docker is more complicated than it could be because of legacy features. Docker has built-in networks: `bridge`, `host` and
 `none`. And also allows user-defined networks: `bridge`, `docker_gwbridge` and `overlay`. Connecting containers to none networks means running 

@@ -9,4 +9,4 @@ REM set SOURCES=%SOURCES:~1%
 
 ECHO Found sources: %SOURCES%
 
-pandoc -sS --toc --filter pandoc-citeproc -o report.docx %SOURCES%
+pandoc -sS --toc --filter pandoc-crossref --filter pandoc-citeproc -o report.docx %SOURCES%
