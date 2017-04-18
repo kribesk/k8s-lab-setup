@@ -14,7 +14,7 @@ K8s is capable of doing so.
 Manual mechanism is simple.  
 Just like a deployment, cluster administrator writes a YAML file of a k8s object with type "PersistentStorage", notes its name, tier name, capacity and the disk/cloud/NAS/SAN where to allocate storage from.
 
-Like this [@k8s_persistence]:
+Like this [@k8s_persistence] :
 
 ```yaml
 apiVersion: v1
@@ -35,7 +35,7 @@ apiVersion: v1
 
 After this, storage is created. Until bound, it is free to be used by any application *claiming* for that. So, the application should make a `PersistentVolumeClaim`, which is likewise deployed to k8s by json config.
 
-Like this [@k8s_persistence]:
+Like this [@k8s_persistence] :
 
 ```yaml
 kind: PersistentVolumeClaim
