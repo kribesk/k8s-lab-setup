@@ -145,15 +145,15 @@ references:
 - id: coreos_ignition
   type: webpage
   URL: https://coreos.com/ignition/docs/latest/what-is-ignition.html
-  title: CoreOS: what are ignition configs
+  title: "CoreOS: what are ignition configs"
 - id: coreos_rkt
   type: webpage
   URL: https://coreos.com/rkt
-  title: CoreOS: what is rkt
+  title: "CoreOS: what is rkt"
 - id: coreos_etcd
   type: webpage
   URL: https://coreos.com/etcd
-  title: CoreOS: what is etcd
+  title: "CoreOS: what is etcd"
 - id: wiki_k8s
   type: webpage
   URL: https://en.wikipedia.org/wiki/Kubernetes
@@ -170,6 +170,10 @@ references:
   type: webpage
   URL: https://kubernetes.io/docs/user-guide/kubectl-overview/
   title: Kubectl management tool overview
+- id: k8s_deployments
+  type: webpage
+  URL: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+  title: Kubectl Deployment object manual
 - id: hypervisor_vs_container
   type: webpage
   URL: http://www.slashroot.in/difference-between-hypervisor-virtualization-and-container-virtualization

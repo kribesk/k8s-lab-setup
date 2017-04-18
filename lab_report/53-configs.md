@@ -93,7 +93,7 @@ That is exactly what our script does. It uses the file below and the /templates 
 The file depicts the default cluster addressing/naming schema and the directories containing ssh keys, group and dns config templates etc.
 
 **config.json**
-```
+```json
 {
   "hosts": [
     {

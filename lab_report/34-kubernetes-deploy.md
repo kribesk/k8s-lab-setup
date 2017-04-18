@@ -1,63 +1,36 @@
 
-## Deploying docker container to kubernetes
+## Deployment object of k8s environment
 
-_(Section by Volodymyr Lubenets, __TODO: Rewrite section!__ )_
+_(Section by Volodymyr Lubenets)_
 
-This is an example of deploying the service to kubernetes cluster.
-Let's suppose the cluster is already up and running.
+K8s environment is an infrastructure which key feature is fast and convenient mechanism to deploy needed services. This feature is called "deployment config". [@k8s_deployments]
 
-Other than that, suppose we have small python application, which acts as a HTTP server, as such.
-**app.py**
+The absolute minimum which a deployment config has to specify is the container which is supposed to run inside the `Pod` created by a deployment.
 
-    #!/usr/bin/python
-    from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
-    
-    PORT_NUMBER = 8080
+This config may contain all the information to provision the environment which is required by the service:
 
-    #This class will handles any incoming request from
-    #the browser 
-    class myHandler(BaseHTTPRequestHandler):
-    	
-    #Handler for the GET requests
-    def do_GET(self):
-    	self.send_response(200)
-    	self.send_header('Content-type','text/html')
-    	self.end_headers()
-    	# Send the html message
-    	self.wfile.write("Hello World !")
-    	return
-    
-    #Create a web server and define the handler to manage the
-    #incoming request
-    server = HTTPServer(('', PORT_NUMBER), myHandler)
-    
-    #Wait forever for incoming http requests
-    server.serve_forever()
-    	
+* CPU and RAM requirements
+* Claims for temporary and persistent storages [@sec:persistence]
+* Networking and load balancing (ingresses and services) [@sec:exposure]
+* Replication and replication strategy (`ReplicaSet` object directive maintains N instances of a `Pod` running on a cluster)
+* Environment variables and startup commands, if any
 
-### Building docker container
+etc.
 
-The first thing to do is to write the provisioning script called Dockerfile. It contains the info on container's base system, files to be inserted and 
-commands to be executed. In here, the listing is such:
+A remarkable feature of `Deployment` is that it may be used to perform rolling updates of existing `Deployment`s. This is done by editing the YAML of a `Deployment` which is already on the cluster.  
+Documentation example shows such action:
 
-**Dockerfile**
+```bash
+$ kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1
+deployment "nginx-deployment" image updated
+```
 
-    FROM alpine:3.1
-    
-    COPY app.py /src/app.py
-        
-    RUN apk add --update python py-pip
-    
-    EXPOSE  13579
-    CMD ["python", "/src/app.py"]
+In here, the image version is changed. This change leads to automatic loading and rolling out new version of nginx, as seen here (again quote from the doc):
 
-After this, execute the following commands:
+```bash
+$ kubectl rollout status deployment/nginx-deployment
+Waiting for rollout to finish: 2 out of 3 new replicas have been updated...
+deployment "nginx-deployment" successfully rolled out
+```
 
-    docker build -t smallapp .
-    docker run --name smallapp -1 -p 8080:13579 -i -t smallapp
-
-### Deploying docker image to minikube
-
-Run `.\minikube.exe docker-env | Invoke-Expression` (for powershell) to switch to minikube's docker
-
-Then run `kubectl apply -f local-registry.yml`
+To get a full overview on this feature, a reader can check out the `config/nfs-provisioner-deployment/nfs_prov.yaml`. Features like allocation storage and setting environment variables is observable there.

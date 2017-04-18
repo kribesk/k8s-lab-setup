@@ -3,7 +3,7 @@
 
 _(Section by Volodymyr Lubenets)_
 
-### K8s persistent storage
+### K8s persistent storage {#sec:persistence}
 
 The matter of using a containerized deployment is simple -- a container is a consolidated thing with all the needed pieces of software inside, from OS to service itself. The stateless applications run just like this -- an independent piece of software answers the queries which change nothing in it (cache perhaps).
 
@@ -90,7 +90,7 @@ By using this, any claim for the `"standard"` tier storage will be satisfied wit
 
 While doing the project, we have also built a deployment called `example.com/nfs-provisioner` to enable provisioning from NFS. A reader can take a look to the repository directory `"config/nfs-provisioner-deployment/nfs_prov.yaml"` to get more info on it.
 
-### Exposing services is not so simple
+### Exposing services is not so simple {#sec:exposure}
 
 If it comes to the networking inside the cluster, it is not only about physical node NIC addressing. Any container has its IP in the Pod network, any Pod is also addressed across the cluster. Therefore, there should be some proxying mechanism which can provide routing of the client request through all these networks.
 
