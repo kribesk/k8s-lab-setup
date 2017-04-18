@@ -5,3 +5,4 @@ config/dnsmasq.conf
 config/sshkeys/*
 bin
 *.exe
+*.docx
