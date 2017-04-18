@@ -1,5 +1,5 @@
 
-## CoreOS
+## CoreOS {#sec:coreos}
 
 _(Section by Volodymyr Lubenets)_
 

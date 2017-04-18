@@ -10,7 +10,7 @@ minimal amount of manual operations.
 Our aim is to automate all the process after startup. Farther automation will require access to BIOS settings (like enabling Wake-On-LAN
 and boot device priority) and does not make that much simplification.
 
-### PXE standard
+### PXE standard {#sec:pxe}
 
 PXE or Preboot eXecution Environment standard method for network boot. PXE is often a feature built-in network adapter. PXE is simple
 and very common: it is embedded in vast majority of modern network cards. Also MB316 computers have PXE feature.

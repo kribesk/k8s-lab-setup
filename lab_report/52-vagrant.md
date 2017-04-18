@@ -11,14 +11,14 @@ Our first attempt was to use native windows docker for running these containers.
 That kernel runs in virtual machine and the only supported provider is HyperV. Docker itself configures it: creates VM and virtual switch. 
 
 Docker has it's own mechanisms to expose services to outside (see [@sec:docker-net]), but not all of them are already supported on Windows.
-The main problem is DHCP server can not work properly in docker container in Windows. Linux way to run it is `--cap-add=NET_ADMIN` option. Another solution
-would be to expose the whole docker VM by changing virtual switch to external. 
+The main problem is DHCP server (see why we need DHCP server in [@sec:pxe]) can not work properly in docker container in Windows. Linux way to run it is 
+`--cap-add=NET_ADMIN` option. Another solution would be to expose the whole docker VM by changing virtual switch to external. 
 
 The first way is not currently supported, the second breaks Docker's internals.
 
 ### Vagrant + VBox
 
-Vagrant is a powerfull development and testing tool for describing VM setups as configuration files. It supports a lot of VM and cloud providers.
+Vagrant is a powerfull development and testing tool for describing VM setups as configuration files. It supports a lot of VM and cloud providers [@vagrant].
 VirtualBox is free, open source, simple and yet powerful and feature-rich VM provider. It works smoothly on Windows and is fully supported by Vagrant.
 
 __Note:__ VirtualBox requires Hyper-V be turned off.
@@ -35,7 +35,7 @@ __Note:__ With the latest version of Vagrant and VirtualBox for Windows there is
 
 `build.cmd` script also does several preparations before starting VM:
 
-  - using SSD for VMs can make everything work faster, so disk `S:` is used both to store VirtualBox VMs and CoreOS image
+  - using SSD for VMs can make everything work faster, so disk `S:` is used both to store VirtualBox VMs and CoreOS ([@sec:coreos]) image
   - if coreos image is present in project folder, it is coppied, otherwise it is downloaded in provisioning script
   - VM uses bridge adapter. Script preconfigures adapter to be used as bridge. The same adapter should be set in
     Vagrantfile, but VBox uses physical name, while netsh uses logical name. We are using CISCO adapter on matchbox host
@@ -56,7 +56,7 @@ booted. After that provisioning though shell script is started:
   - Docker matchbox and dnsmasq containers are downloaded
   - Network (bridged) is configured staticly
   - NAT is implemented with iptables (NAT is required because cluster nodes need internet connection to download docker and rkt images)
-  - NFS server is configured and started (NFS is required to provide cluster with some persistent storage, in production more complex and reliable solutions should be used)
+  - NFS server is configured [@nfs] and started (NFS is required to provide cluster with some persistent storage, in production more complex and reliable solutions should be used)
 
 If provision finished without errors, VM is ready and the next step is to run containers. `run.cmd` is used to run/restart both matchbox and dnsmasq with all required
 parameters.

@@ -3,7 +3,7 @@
 
 _(Section by Boris Kirikov)_
 
-Minikube is kubernetes distribution that can run locally on developers laptop. It can run on top of any type of host OS because uses VM as a node.
+Minikube is kubernetes distribution that can run locally on developers laptop [@minikube]. It can run on top of any type of host OS because uses VM as a node.
 This is the easiest way to get some hands-on experience with kubernetes, so we decided to start with installing minikube on Windows and trying some
 basic things.
 
@@ -26,7 +26,7 @@ basic things.
 
 ### Deploy some container
 
-Let's deploy Keycloak container as example of using k8s deploy. 
+Let's deploy Keycloak [@keycloak] container [@keycloak-container] as example of using k8s deploy. 
 
 There are several ways of doing it:
 
