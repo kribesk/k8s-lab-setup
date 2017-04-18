@@ -7,7 +7,7 @@ Minikube is kubernetes distribution that can run locally on developers laptop [@
 This is the easiest way to get some hands-on experience with kubernetes, so we decided to start with installing minikube on Windows and trying some
 basic things.
 
-### Installation (in MB316)
+### Installation (in MB316) {#sec:minikube-install}
 
   1. Login as local administrator (Username: `cisco`)
   2. From `Win + X` open Control Panel, Programs, Turn Windows features on and off

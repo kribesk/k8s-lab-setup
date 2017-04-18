@@ -38,6 +38,38 @@ references:
   type: webpage
   URL: https://www.vagrantup.com/intro/getting-started/
   title: "Vagrant: getting started"
+- id: oslevel-virt
+  type: webpage
+  URL: "https://en.wikipedia.org/wiki/Operating-system-level_virtualization"
+  title: "Operating-system-level virtualization"
+- id: docker-net
+  type: webpage
+  URL: "https://docs.docker.com/engine/userguide/networking/"
+  title: "Docker container networking"
+- id: docker-swarm
+  type: webpage
+  URL: "https://docs.docker.com/engine/swarm/"
+  title: "Swarm mode overview"
+- id: docker-vs-k8s
+  type: webpage
+  URL: "https://platform9.com/blog/compare-kubernetes-vs-docker-swarm/"
+  title: "Container Orchestration Tools: Compare Kubernetes vs Docker Swarm"
+- id: docker-machine
+  type: webpage
+  URL: "https://docs.docker.com/machine/overview/"
+  title: "Docker Machine Overview"
+- id: docker-cli
+  type: webpage
+  URL: "https://docs.docker.com/engine/reference/commandline/cli/"
+  title: "Use the Docker command line"
+- id: docker-win-native
+  type: webpage
+  URL: "https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/"
+  title: "Build and run your first Docker Windows Server container"
+- id: alpine
+  type: webpage
+  URL: "https://alpinelinux.org/"
+  title: "Alpine linux"
 notice: |
   @k8s-api, @matchbox
 csl: ieee-security-and-privacy.csl
