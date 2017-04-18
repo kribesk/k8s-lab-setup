@@ -7,7 +7,7 @@ __Docker__ is a group of technologies and programs that introduce container, all
 
 ### Containers
 
-Keeping service __installations inside VMs__ become is very convenient way for deployment:
+Keeping service __installations inside VMs__ is very convenient way for deployment:
 
   * If it works on developers machine, than it will work the same way everywhere
   * Compilation, building, compilation, packaging, installation, configuration and other processes that form the way from development to
@@ -23,8 +23,8 @@ user-space utils and basic services. This means a lot of overhead when packaging
 This lead to idea of minimizing overhead of base images. Surely the base image only needs kernel, drivers used by VM solution, network 
 services and management tools. Of cause, para-virtualization can be used. And so on.
 
-The extreme of this idea is __OS-level virtualization__ and containers. In this case there is no computation overhead and no extra kernel, 
-because instances use directly the host's kernel. Of cause host should support this feature. 
+The extreme of this idea is __OS-level virtualization__ [@oslevel-virt] and containers. In this case there is no computation overhead and 
+no extra kernel, because instances use directly the host's kernel. Of cause host should support this feature. 
 
 The simplest implementation of this idea is UNIX chroot that basically just isolates fs sub-tree. So it is not a secure solution. Another 
 classic solution is FreeBSD jail, that provides much more isolation and adds management features.
@@ -39,8 +39,8 @@ file system. Container is like VM instance. It is application that has state and
 
 ### Metadata
 
-Docker (and kubernetes too) use "attached dictionaries" of metadata for simplifying and automation of management. This means that to 
-objects (images, containers, volumes, networks, etc) labels can be attached. Label is basically a key-value pare of two strings, that 
+Docker (and kubernetes too) use "attached dictionaries" of metadata for simplifying and automation of management[@docker-meta]. This means 
+that to objects (images, containers, volumes, networks, etc) labels can be attached. Label is basically a key-value pare of two strings, that 
 can be tags, version/author information, scope or just everything. 
 
 For docker there are guidelines for using labels. Because docker images are way to distribute software and are mostly used by third-party
@@ -49,8 +49,8 @@ users, namespace conventions for labels are suggested. They work like packages i
 ### Layered FS
 
 One of the reasons why docker became so popular is that it works with containers like git with repositories. Instead of storing complete
-disk images it stores versions of images as difference layers. It minimizes use of storage and network, allows keeping different versions
-and quickly update images from registers.
+disk images it stores versions of images as difference layers [@docker-fs]. It minimizes use of storage and network, allows keeping different 
+versions and quickly update images from registers.
 
 The Docker storage driver stacks diff layers and provide a single unified view. When changes happen, they are written to the new layer on
 top of existing image.
@@ -58,14 +58,14 @@ top of existing image.
 ### Registry and repository
 
 When comparing docker to git, there are repositories and registries. Repository contains different versions in tree of layers of image,
-just like git contains code in tree of commits. Registry is a place that keeps repositories, just like GitHub. Examples of public
+just like git contains code in tree of commits [@docker-repo]. Registry is a place that keeps repositories, just like GitHub. Examples of public
 registries are Docker Hub, Quay, GCR and AWS Container Registry. Just like git, docker enumerates versions with hashes and have tags 
 pointing to specific versions.
 
 ### Docker daemon
 
-Docker uses server-client model. Server is docker daemon, dockerd. And client may be a CLI application `docker` or compose (see later)
-etc. So dockerd is the service that runs containers. It provides REST API for communication with clients. There are different ways of
+Docker uses server-client model. Server is docker daemon, `dockerd`. And client may be a CLI application `docker` or compose (see later)
+etc. So dockerd is the service that runs containers [@docker-dockerd]. It provides REST API for communication with clients. There are different ways of
 running dockerd: as a standalone program, as systemd service and even as a windows service. Also different channels can be selected for
 communication: by default unix sockets are used, but tcp can also be used.
 
@@ -73,25 +73,20 @@ communication: by default unix sockets are used, but tcp can also be used.
 
 Docker is designed for Linux based systems, but it is also available for Windows and Mac OS. This is possible because virtualization.
 
-__Docker Machine__ is a tool for installing and using Docker on virtual hosts. This does not limit to running Docker on other platforms
+__Docker Machine__ is a tool for installing and using Docker on virtual hosts [@docker-machine]. This does not limit to running Docker on other platforms
 but also allows to use it in data centers or with cloud providers. `docker-machine` CLI is used to install and control docker daemon
 on virtual hosts.
 
 Modern way of installing Docker for Windows is not Docker Machine, but the idea is still the same. VM with Linux  is created
-and CLI is used for hosting containers. The great difference is that dockerd is now windows native application, but still Linux kernel
-([Alpine Linux](https://alpinelinux.org/) distribution aka MobyLinuxVM) is used. And Docker for Windows features nice installer 
-and some GUI tools for configuration.
+and CLI is used for hosting containers. The great difference is that dockerd is now windows native application [@docker-native], but 
+still Linux kernel (Alpine Linux [@alpine] distribution aka MobyLinuxVM) is used. And Docker for Windows features 
+nice installer and some GUI tools for configuration.
 
-Also recently appeared option to run windows native containers. That means running windows applications inside native containers without
-any extra virtualization.
+Also recently appeared option to run windows native containers[@docker-win-native]. That means running windows applications inside native 
+containers without any extra virtualization.
 
 The only virtualization platform currently supported for Windows is Hyper-V. That means Hyper-V feature should be enabled on computer.
-To enable it:
-
-  1. Log in as administrator
-  2. Go to Control Panel -> Programs -> Turn Windows features on and off -> Enable Hyper-V Platform. Enabling management tools is not
-     required but it simplifies troubleshooting process if something goes wrong
-  3. Reboot the computer (reboots twice)
+See how to enable it in [@sec:minikube-install]
 
 After that Docker for Windows can be downloaded from official [download page](https://download.docker.com/win/stable/InstallDocker.msi)
 and installed. After that in Hyper-V management console new VM appears.
@@ -102,7 +97,7 @@ Docker GUI settings.
 
 ### Docker CLI
 
-Basic commands are:
+Basic commands are [@docker-cli]:
 
   * `docker pull <repository>` to download repository from registry
   * version or tag can be specified as `<repository>:<tag>`
@@ -128,7 +123,7 @@ Basic commands are:
 ### Networking {#sec:docker-net}
 
 Networking in docker is more complicated than it could be because of legacy features. Docker has built-in networks: `bridge`, `host` and
-`none`. And also allows user-defined networks: `bridge`, `docker_gwbridge` and `overlay`. Connecting containers to none networks means running 
+`none`. And also allows user-defined networks: `bridge`, `docker_gwbridge` and `overlay` [@docker-net]. Connecting containers to none networks means running 
 them without interfaces except loopback. Connecting to host network means using the same network as host.
 
 Built-in bridge (interface `docker0` of the host) and user-defined bridge create new virtual internal network, sets subnet and gateway.
@@ -149,16 +144,16 @@ networks are used in swarm mode and overlay cluster network.
 Swarm is another relatively-new feature of Docker that is basic cluster management. It's list of features is quite similar to kubernetes's,
 including: cluster networking and DNS, load balancers, scaling and self-maintenance according to declarative specifications. 
 
-Swarm allows to use cluster as one big docker engine, while Kubernetes has much more complex structure. Swarm has the same API as
+Swarm allows to use cluster as one big docker engine [@docker-swarm], while Kubernetes has much more complex structure. Swarm has the same API as
 docker. Load balancing, grouping and exposing is done by another piece of software called Compose.
 
-Detailed comparison of Swarm and Kubernetes can be found [here](https://platform9.com/blog/compare-kubernetes-vs-docker-swarm/).
+See also detailed comparison of Swarm and Kubernetes [@docker-vs-k8s].
 
 
 ### Example: running Keycloak
 
 
-This example shows how to run Keycloak in docker container in MB316.
+This example shows how to run Keycloak [@keycloak] in docker container in MB316.
 
 ~~~~~
 docker pull jboss/keycloak

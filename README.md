@@ -1,6 +1,8 @@
 # k8s-lab-setup
 
-Lab setup of kubernetes cluster on baremetal using matchbox.
+__Lab setup of kubernetes cluster on baremetal using matchbox.__
+
+
 
 ## Useful links
 
