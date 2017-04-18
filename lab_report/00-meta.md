@@ -126,6 +126,18 @@ references:
   type: webpage
   URL: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
   title: K8s -- persistent volumes
+- id: k8s_services
+  type: webpage
+  URL: https://kubernetes.io/docs/concepts/services-networking/service/
+  title: K8s -- services and networking using services
+- id: k8s_ingress
+  type: webpage
+  URL: https://kubernetes.io/docs/concepts/services-networking/ingress/
+  title: K8s -- ingresses
+- id: nginx_ingress
+  type: webpage
+  URL: https://github.com/kubernetes/ingress/blob/master/examples/aws/nginx/nginx-ingress-controller.yaml
+  title: Nginx custom load balancer example
 notice: |
   @k8s-api, @matchbox
 csl: ieee-security-and-privacy.csl
