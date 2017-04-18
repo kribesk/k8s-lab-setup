@@ -125,7 +125,7 @@ The last option seems the best, however, it often leads to unexpected behavior. 
 
 This option is an `Ingress` k8s object [@k8s_ingress]. `Ingress` is just another layer between the services and outer network, read: proxy. According to the k8s resource,
 
-> It can be configured to give services externally-reachable urls, load balance traffic, terminate SSL, offer name based virtual hosting etc.
+> It can be configured to give services externally-reachable URLs, load balance traffic, terminate SSL, offer name based virtual hosting etc.
 
 As an example, the following simple ingress forwards request for the page (either foo.bar.com/foo or foo.bar.com/bar) to a specific service depending on which page is requested.
 

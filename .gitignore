@@ -6,3 +6,4 @@ config/sshkeys/*
 bin
 *.exe
 *.docx
+*.pdf

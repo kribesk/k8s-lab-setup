@@ -185,8 +185,8 @@ references:
 notice: |
   @k8s-api, @matchbox
 csl: ieee-security-and-privacy.csl
-link-citations: true
-linkReferences: true
+link-citations: false
+linkReferences: false
 autoSectionLabels: true
 numberSections: true
 ---

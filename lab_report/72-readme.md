@@ -11,7 +11,7 @@ _(Section by Boris Kirikov)_
  - One Windows machine to boot cluster, with:
     * VirtualBox
     * Vagrant
-    * Python + jinja2 + wol for config generation and wake on lan
+    * Python + jinja2 + WOL for config generation and wake on lan
  - 30-60 min depending on internet access speed
 
 ### Starting cluster

@@ -5,7 +5,7 @@ _(Section by Volodymyr Lubenets)_
 
 ### What is it?
 
-CoreOS is a linux distribution adapted to be used as an OS for a cluster node, particularly the cluster managed by kubernetes platforms and using docker
+CoreOS is a Linux distribution adapted to be used as an OS for a cluster node, particularly the cluster managed by kubernetes platforms and using docker
 container approach.
 
 CoreOS distribution differs from classical desktop or server dramatically. It possesses special features which make OS-level virtualization easy and 
@@ -15,7 +15,7 @@ possible. Let's take a look on them.
 
 * No package manager used. CoreOS is designed to just provide its kernel to virtualized containers, so the native software set of the distribution is not
 supposed to be dynamically modified.
-* Uses rkt as built-in container runtime. This is a linux native container runtime developed by CoreOS team, which uses linux kernel instruments such as cgroups and namespaces instead of Docker approach (btw, it was used here previously too) [@coreos_rkt]
+* Uses rkt as built-in container runtime. This is a Linux native container runtime developed by CoreOS team, which uses Linux kernel instruments such as cgroups and namespaces instead of Docker approach (by the way, it was used here previously too) [@coreos_rkt]
 * Has a special built-in daemon etcd, which was described in *"Kubernetes"* section. Keeping short, it is a program which gets the configs from cluster-wide 
 repo and can write to the shared cluster storage dynamically. Other than that, etcd is responsible for service discovery feature allowing other cluster 
 members see and use the service running. [@coreos_etcd]

@@ -14,7 +14,7 @@ basic things.
   3. Enable Hyper-V platform
   4. After feature is enabled, reboot the desktop (should reboot twice)
   5. Check from control panel that feature is enabled
-  6. From start menu launch Hyper-V Manager and connect to local machineto verify Hyper-V platform is running
+  6. From start menu launch Hyper-V Manager and connect to local machine to verify Hyper-V platform is running
   7. Open Virtual Switch Manager and  Create Private Switch (use name sw1, Connection: External network)
   8. Download [minikube binary](https://storage.googleapis.com/minikube/releases/v0.16.0/minikube-windows-amd64.exe)
   9. Also download [kubectl utility](https://storage.googleapis.com/kubernetes-release/release/v1.5.2/bin/windows/amd64/kubectl.exe)

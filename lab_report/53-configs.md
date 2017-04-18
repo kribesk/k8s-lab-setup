@@ -87,7 +87,7 @@ As there are only two roles of the nodes in the cluster (i.e. controller and wor
 
 So, the group files should be constructed based on domain name, IP, MAC and role of the node. The same situation is with the dnsmasq (DNS and DHCP) server -- the node domain names should follow the naming convention.
 
-It has sense to locate this data in a simple json and make the whole config tree based on this data generated automatically.
+It has sense to locate this data in a simple JSON and make the whole config tree based on this data generated automatically.
 
 That is exactly what our script does. It uses the file below and the /templates directory to build the configs by utilizing python-jinja2 templating engine.  
 The file depicts the default cluster addressing/naming schema and the directories containing ssh keys, group and dns config templates etc.

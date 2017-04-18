@@ -7,7 +7,7 @@ It is recommended to use matchbox and dnsmasq as containers (later it can even r
 
 ### Why can not use native Docker
 
-Our first attempt was to use native windows docker for running these containers. Windows docker is a native application, but applications still need linux kernel.
+Our first attempt was to use native windows docker for running these containers. Windows docker is a native application, but applications still need Linux kernel.
 That kernel runs in virtual machine and the only supported provider is HyperV. Docker itself configures it: creates VM and virtual switch. 
 
 Docker has it's own mechanisms to expose services to outside (see [@sec:docker-net]), but not all of them are already supported on Windows.
@@ -18,7 +18,7 @@ The first way is not currently supported, the second breaks Docker's internals.
 
 ### Vagrant + VBox
 
-Vagrant is a powerfull development and testing tool for describing VM setups as configuration files. It supports a lot of VM and cloud providers [@vagrant].
+Vagrant is a powerful development and testing tool for describing VM setups as configuration files. It supports a lot of VM and cloud providers [@vagrant].
 VirtualBox is free, open source, simple and yet powerful and feature-rich VM provider. It works smoothly on Windows and is fully supported by Vagrant.
 
 __Note:__ VirtualBox requires Hyper-V be turned off.
@@ -51,7 +51,7 @@ this patch:
 `build.cmd` script also does several preparations before starting VM:
 
   - using SSD for VMs can make everything work faster, so disk `S:` is used both to store VirtualBox VMs and CoreOS ([@sec:coreos]) image
-  - if coreos image is present in project folder, it is coppied, otherwise it is downloaded in provisioning script
+  - if coreos image is present in project folder, it is copied, otherwise it is downloaded in provisioning script
   - VM uses bridge adapter. Script preconfigures adapter to be used as bridge. The same adapter should be set in
     Vagrantfile, but VBox uses physical name, while netsh uses logical name. We are using CISCO adapter on matchbox host
 
@@ -60,16 +60,16 @@ Before starting vm, script asks to check that cable is connected to chosen adapt
 We used cisco switch to build isolated network for our cluster. Configuration of switch can be found in `config/S1.txt`. It can be uploaded via serial connection
 and suited many models of modern cisco switches.
 
-__Note:__ WOL is only supported on Intel NICs on MB316 computers, that's why we connected switch to general network (white cables) ports. Also changin boot order for
+__Note:__ WOL is only supported on Intel NICs on MB316 computers, that's why we connected switch to general network (white cables) ports. Also changing boot order for
 WOL is needed to boot it from network instead of HDD.
 
-After preparations script starts vagrant. The base box image is downloaded automaticly if it is not present, VM settings from Vagrant file are applied and machine is
+After preparations script starts vagrant. The base box image is downloaded automatically if it is not present, VM settings from Vagrant file are applied and machine is
 booted. After that provisioning though shell script is started:
 
   - Docker and NFS server are installed
   - CoreOS image is downloaded if not present to folder mounted to SSD (`S:`)
   - Docker matchbox and dnsmasq containers are downloaded
-  - Network (bridged) is configured staticly
+  - Network (bridged) is configured statically
   - NAT is implemented with iptables (NAT is required because cluster nodes need internet connection to download docker and rkt images)
   - NFS server is configured [@nfs] and started (NFS is required to provide cluster with some persistent storage, in production more complex and reliable solutions should be used)
 

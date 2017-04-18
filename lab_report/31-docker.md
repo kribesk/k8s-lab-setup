@@ -39,7 +39,7 @@ file system. Container is like VM instance. It is application that has state and
 
 ### Metadata
 
-Docker (and kubernetes too) use "attached dictionaries" of metadata for simplifying and automation of management[@docker-meta]. This means 
+Docker (and kubernetes too) use "attached dictionaries" of metadata for simplifying and automation of management [@docker-meta]. This means 
 that to objects (images, containers, volumes, networks, etc) labels can be attached. Label is basically a key-value pare of two strings, that 
 can be tags, version/author information, scope or just everything. 
 
@@ -82,7 +82,7 @@ and CLI is used for hosting containers. The great difference is that dockerd is 
 still Linux kernel (Alpine Linux [@alpine] distribution aka MobyLinuxVM) is used. And Docker for Windows features 
 nice installer and some GUI tools for configuration.
 
-Also recently appeared option to run windows native containers[@docker-win-native]. That means running windows applications inside native 
+Also recently appeared option to run windows native containers [@docker-win-native]. That means running windows applications inside native 
 containers without any extra virtualization.
 
 The only virtualization platform currently supported for Windows is Hyper-V. That means Hyper-V feature should be enabled on computer.
